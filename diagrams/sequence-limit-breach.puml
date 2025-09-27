@@ -1,0 +1,12 @@
+@startuml LimitBreachFlow
+!theme plain
+actor Trader
+participant Trading as TR
+participant Risk as RK
+
+Trader -> TR : PlaceOrder
+TR -> RK : CheckPreTradeLimits
+RK --> TR : LimitCheckResult (BREACH)
+TR -> Trader : RejectOrder("Exposure limit exceeded")
+RK -> Risk : Emit LimitBreached event
+@enduml

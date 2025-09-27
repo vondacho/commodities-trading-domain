@@ -1,0 +1,29 @@
+@startuml TradingIntegration
+!theme plain
+
+actor Trader
+actor Exchange
+actor MarketDataProvider
+
+package "Trading Context" {
+  [Order Management] as OM
+  [Trade Capture] as TC
+  [Position Keeping] as PK
+  [Smart Order Router] as SOR
+  [Pricing Engine] as PE
+}
+
+Trader --> (Place Order)
+Trader --> (Cancel Order)
+Trader --> (Track Positions)
+Trader --> (View Market Data)
+
+(Place Order) --> OM
+(Cancel Order) --> OM
+(View Market Data) --> PE
+OM --> SOR
+SOR --> Exchange
+Exchange --> TC : Execution Fills
+TC --> PK : Update Positions
+MarketDataProvider --> PE
+@enduml

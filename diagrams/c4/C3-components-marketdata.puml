@@ -1,0 +1,16 @@
+@startuml C3_Components_MarketData
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(marketdata_svc, "Market Data Service", "Java/Go", "Feeds, curves, fallbacks")
+
+Component(feed_handler, "Feed Handler", "Module", "Ingests raw market data feeds")
+Component(price_norm, "Price Normalizer", "Module", "Cleans and standardizes prices")
+Component(curve_builder, "Curve Builder", "Module", "Builds forward curves and vol surfaces")
+Component(fallback_mgr, "Fallback Manager", "Module", "Switches to backup feeds on outage")
+
+Rel(feed_handler, price_norm, "Provide cleaned ticks")
+Rel(price_norm, curve_builder, "Provide prices")
+Rel(feed_handler, fallback_mgr, "Detect outage")
+Rel(fallback_mgr, price_norm, "Switch source")
+@enduml

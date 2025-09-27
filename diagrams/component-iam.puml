@@ -1,0 +1,14 @@
+@startuml IAMComponents
+!theme plain
+
+package "Identity & Access" {
+  [User Directory] as UD
+  [Role Manager] as RM
+  [Entitlement Checker] as EC
+  [Approval Workflow] as AW
+}
+
+UD --> RM : users assigned roles
+RM --> EC : evaluate permissions
+AW --> EC : override approvals
+@enduml

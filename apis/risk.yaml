@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info: { title: Risk API, version: 0.1.0 }
+paths:
+  /limits:
+    post:
+      summary: SetRiskLimit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scope: { type: string }
+                limitName: { type: string }
+                threshold: { type: number }
+      responses: { '200': { description: Updated } }
+  /exposure:
+    get:
+      summary: Get exposure snapshot
+      parameters:
+        - in: query; name: bookId; schema: { type: string }
+        - in: query; name: product; schema: { type: string }
+      responses: { '200': { description: OK } }

@@ -1,0 +1,26 @@
+@startuml ComplianceIntegration
+!theme plain
+
+actor ComplianceOfficer
+actor Trader
+
+package "Compliance Context" {
+  [KYC/AML Checker] as KYC
+  [Sanctions Screening] as SS
+  [Trade Surveillance] as TS
+  [Regulatory Reporter] as RR
+}
+
+ComplianceOfficer --> (Run KYC/AML Checks)
+ComplianceOfficer --> (Detect Market Abuse)
+ComplianceOfficer --> (File Regulatory Reports)
+ComplianceOfficer --> (Monitor Sanctions Lists)
+Trader --> (Run KYC/AML Checks)
+
+(Run KYC/AML Checks) --> KYC
+KYC --> SS
+(Detect Market Abuse) --> TS
+(File Regulatory Reports) --> RR
+(Monitor Sanctions Lists) --> SS
+TS --> RR
+@enduml

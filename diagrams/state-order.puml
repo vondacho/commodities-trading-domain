@@ -1,0 +1,17 @@
+@startuml OrderLifecycle
+!theme plain
+
+[*] --> New
+
+New --> Pending : PlaceOrder
+Pending --> PartiallyFilled : PartialFill
+Pending --> Filled : TradeCaptured(all qty)
+PartiallyFilled --> Filled : RemainingFill
+Pending --> Cancelled : CancelOrder
+PartiallyFilled --> Cancelled : CancelRemaining
+Pending --> Rejected : RejectOrder
+
+Filled --> [*]
+Cancelled --> [*]
+Rejected --> [*]
+@enduml

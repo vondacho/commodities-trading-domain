@@ -1,0 +1,16 @@
+@startuml TradingComponents
+!theme plain
+
+package "Trading Context" {
+  [Order Management] as OM
+  [Trade Capture] as TC
+  [Position Keeping] as PK
+  [Smart Order Router] as SOR
+  [Pricing Engine] as PE
+}
+
+OM --> SOR : routes orders
+SOR --> TC : on execution fill
+TC --> PK : update positions
+PE --> OM : provides prices
+@enduml

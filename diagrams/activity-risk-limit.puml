@@ -1,0 +1,15 @@
+@startuml RiskLimitMonitoring
+!theme plain
+
+start
+:Receive New Order;
+:Calculate Exposure Impact;
+if (Exceeds Limit?) then (Yes)
+  :Reject Order;
+  :Emit Limit Breach Alert;
+else (No)
+  :Approve Order;
+  :Update Exposure;
+endif
+stop
+@enduml

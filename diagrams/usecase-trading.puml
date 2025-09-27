@@ -1,0 +1,24 @@
+@startuml TradingUseCases
+!theme plain
+
+actor Trader
+actor RiskManager
+actor Exchange
+actor MarketDataProvider
+
+rectangle TradingSystem {
+  usecase "Place Order" as UC1
+  usecase "Cancel Order" as UC2
+  usecase "View Market Data" as UC3
+  usecase "Track Positions" as UC4
+}
+
+Trader --> UC1
+Trader --> UC2
+Trader --> UC3
+Trader --> UC4
+RiskManager --> UC4
+Exchange --> UC1
+Exchange --> UC2
+MarketDataProvider --> UC3
+@enduml

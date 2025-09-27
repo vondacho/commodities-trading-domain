@@ -1,0 +1,117 @@
+@startuml GlobalIntegration
+!theme plain
+
+actor Trader
+actor RiskManager
+actor Ops as OpsUser
+actor BackOffice
+actor ComplianceOfficer
+actor Exchange
+actor MarketDataProvider
+actor Bank
+actor Counterparty
+
+package "Trading Context" {
+  [Order Management] as OM
+  [Trade Capture] as TC
+  [Position Keeping] as PK
+  [Smart Order Router] as SOR
+  [Pricing Engine] as PE
+}
+
+package "Risk Context" {
+  [Exposure Calculator] as EXC
+  [VaR Engine] as VAR
+  [Limit Manager] as LM
+  [Stress Tester] as ST
+}
+
+package "Finance Context" {
+  [Trade Confirmation] as CONF
+  [Invoice Generator] as INV
+  [Cash Reconciliation] as CASH
+  [Accounting Integration] as ACC
+}
+
+package "Logistics Context" {
+  [Contract Manager] as LCM
+  [Shipment Tracker] as LST
+  [Inventory Manager] as LIM
+  [Quality Control] as LQC
+}
+
+package "Compliance Context" {
+  [KYC/AML Checker] as CKYC
+  [Sanctions Screening] as CSS
+  [Trade Surveillance] as CTS
+  [Regulatory Reporter] as CRR
+}
+
+package "Market Data Context" {
+  [Feed Handler] as FH
+  [Price Normalizer] as PN
+  [Curve Builder] as CB
+  [Fallback Manager] as FM
+}
+
+package "Reference Data Context" {
+  [Instrument Catalog] as RIC
+  [Counterparty Master] as RCM
+  [Calendar Service] as RCAL
+  [Unit Conversion] as RUC
+}
+
+package "IAM Context" {
+  [User Directory] as IUD
+  [Role Manager] as IRM
+  [Entitlement Checker] as IEC
+  [Approval Workflow] as IAW
+}
+
+' --- Actors to contexts ---
+Trader --> OM : Place/Cancel Orders
+Trader --> PE : View Prices
+Trader --> PK : Track Positions
+RiskManager --> LM : Set Limits
+RiskManager --> EXC : Monitor Exposure
+OpsUser --> LST : Track Shipments
+OpsUser --> LIM : Manage Inventory
+BackOffice --> INV : Generate Invoices
+BackOffice --> CASH : Reconcile
+ComplianceOfficer --> CKYC : Run KYC
+ComplianceOfficer --> CTS : Monitor Abuse
+
+Exchange --> SOR
+MarketDataProvider --> FH
+Bank --> CASH
+Counterparty --> CONF
+
+' --- Inter-context flows ---
+OM --> SOR
+SOR --> TC
+TC --> PK
+PK --> EXC
+EXC --> LM
+VAR --> LM
+ST --> LM
+CONF --> INV
+INV --> CASH
+CASH --> ACC
+LST --> LIM
+LQC --> LIM
+LIM --> INV : Delivery basis
+CKYC --> CSS
+CTS --> CRR
+FH --> PN
+PN --> CB
+FH --> FM
+FM --> PN
+RIC --> OM
+RCM --> CKYC
+RCAL --> RIC
+RUC --> RIC
+IUD --> IRM
+IRM --> IEC
+IAW --> IEC
+
+@enduml

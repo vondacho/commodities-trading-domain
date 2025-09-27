@@ -1,0 +1,12 @@
+openapi: 3.0.3
+info: { title: Reference Data API, version: 0.1.0 }
+paths:
+  /counterparties:
+    get:
+      summary: List counterparties
+      responses: { '200': { description: OK } }
+  /instruments:
+    get:
+      summary: List instruments
+      parameters: [{ in: query, name: commodity, schema: { type: string } }]
+      responses: { '200': { description: OK } }

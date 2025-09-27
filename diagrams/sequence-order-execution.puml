@@ -1,0 +1,15 @@
+@startuml OrderExecutionFlow
+!theme plain
+actor Trader
+participant Trading as TR
+participant Exchange as EX
+participant Risk as RK
+
+Trader -> TR : PlaceOrder
+TR -> RK : CheckPreTradeLimits
+RK --> TR : LimitCheckResult (OK)
+TR -> EX : RouteOrder
+EX --> TR : TradeCaptured
+TR -> TR : UpdatePosition
+TR -> RK : Publish PositionUpdated
+@enduml

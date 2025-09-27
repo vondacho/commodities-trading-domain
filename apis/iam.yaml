@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info: { title: Identity & Access API, version: 0.1.0 }
+paths:
+  /users:
+    get:
+      summary: List users
+      responses: { '200': { description: OK } }
+  /authz/check:
+    post:
+      summary: Check entitlement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId: { type: string }
+                action: { type: string }
+                resource: { type: string }
+      responses: { '200': { description: Allowed/Denied } }

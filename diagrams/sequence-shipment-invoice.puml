@@ -1,0 +1,12 @@
+@startuml ShipmentInvoiceFlow
+!theme plain
+actor Ops as OPS
+participant Logistics as LG
+participant Finance as FN
+
+OPS -> LG : RecordArrival(shipment)
+LG -> LG : UpdateInventory
+LG -> FN : Emit ShipmentReceived
+FN -> FN : GenerateInvoice(basis=Shipment)
+FN -> OPS : InvoiceIssued
+@enduml

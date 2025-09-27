@@ -1,0 +1,15 @@
+@startuml C3_Components_Finance
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(finance_svc, "Finance Service", "JVM/Python", "Confirmations, invoices, settlements")
+
+Component(conf_engine, "Confirmation Engine", "Module", "Match trades and generate confirmations")
+Component(invoice_gen, "Invoice Generator", "Module", "Create invoices from deliveries/confirmations")
+Component(cash_recon, "Cash Reconciliation", "Module", "Match payments vs invoices")
+Component(accounting, "Accounting Integration", "Module", "Post to general ledger")
+
+Rel(conf_engine, invoice_gen, "Feed confirmed trades")
+Rel(invoice_gen, cash_recon, "Track payments")
+Rel(cash_recon, accounting, "Send accounting entries")
+@enduml

@@ -1,0 +1,17 @@
+@startuml C3_Components_Risk
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(risk_svc, "Risk Service", "JVM/Python", "Exposure, VaR, limits")
+
+Component(limit_manager, "Limit Manager", "Module", "Defines and enforces limits")
+Component(exposure_calc, "Exposure Calculator", "Module", "Aggregates positions & sensitivities")
+Component(var_engine, "VaR Engine", "Module", "Historical/simulated VaR")
+Component(stress_tester, "Stress Tester", "Module", "What-if scenario engine")
+Component(curve_adapter, "Curve Adapter", "Module", "Pulls curves/prices")
+
+Rel(exposure_calc, limit_manager, "Feeds exposure")
+Rel(var_engine, limit_manager, "Risk metrics")
+Rel(stress_tester, limit_manager, "Scenario results")
+Rel(curve_adapter, exposure_calc, "Valuation inputs")
+@enduml

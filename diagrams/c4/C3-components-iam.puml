@@ -1,0 +1,15 @@
+@startuml C3_Components_IAM
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(iam_svc, "IAM Service", "Keycloak/Auth0", "Users, roles, entitlements, approvals")
+
+Component(user_dir, "User Directory", "Module", "Stores user identities")
+Component(role_mgr, "Role Manager", "Module", "Assigns roles to users")
+Component(entitlement_chk, "Entitlement Checker", "Module", "Evaluates permissions on actions")
+Component(approval_wf, "Approval Workflow", "Module", "Handles 4-eyes approvals")
+
+Rel(user_dir, role_mgr, "Assign roles")
+Rel(role_mgr, entitlement_chk, "Feed role-permissions")
+Rel(approval_wf, entitlement_chk, "Override approvals")
+@enduml

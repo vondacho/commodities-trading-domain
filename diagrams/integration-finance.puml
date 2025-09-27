@@ -1,0 +1,28 @@
+@startuml FinanceIntegration
+!theme plain
+
+actor BackOffice
+actor Counterparty
+actor Bank
+
+package "Finance Context" {
+  [Trade Confirmation] as CONF
+  [Invoice Generator] as INV
+  [Cash Reconciliation] as CASH
+  [Accounting Integration] as ACC
+}
+
+BackOffice --> (Generate Invoice)
+BackOffice --> (Reconcile Accounts)
+BackOffice --> (Post to General Ledger)
+Counterparty --> (Record Payment)
+Bank --> (Reconcile Accounts)
+
+(Generate Invoice) --> INV
+(Reconcile Accounts) --> CASH
+(Post to General Ledger) --> ACC
+(Record Payment) --> CASH
+CONF --> INV
+INV --> CASH
+CASH --> ACC
+@enduml

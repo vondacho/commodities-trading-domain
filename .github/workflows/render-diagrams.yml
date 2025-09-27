@@ -1,0 +1,38 @@
+name: Render PlantUML Diagrams
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  render-diagrams:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Download PlantUML jar
+        run: |
+          curl -L -o plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+
+      - name: Render PUML to PNG/SVG
+        run: |
+          mkdir -p rendered-diagrams/png rendered-diagrams/svg
+          find diagrams -name "*.puml" | while read f; do
+            base=$(basename "$f" .puml)
+            java -jar plantuml.jar -tpng "$f" -o ../rendered-diagrams/png
+            java -jar plantuml.jar -tsvg "$f" -o ../rendered-diagrams/svg
+          done
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: rendered-diagrams
+          path: rendered-diagrams

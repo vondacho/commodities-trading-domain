@@ -1,0 +1,32 @@
+# Trading Aggregates (Mermaid class diagram)
+
+```mermaid
+classDiagram
+  class Order {
+    id: String
+    side: BUY|SELL
+    instrument: String
+    qty: long
+    price: decimal?
+    timeInForce: String
+    status: String
+    route: String?
+  }
+  class Trade {
+    tradeId: String
+    orderId: String
+    instrument: String
+    qty: long
+    price: decimal
+    venue: String
+    timestamp: DateTime
+  }
+  class Position {
+    bookId: String
+    instrument: String
+    netQty: long
+    avgPrice: decimal
+  }
+  Order "1" --> "*" Trade : results in
+  Trade --> Position : updates
+```

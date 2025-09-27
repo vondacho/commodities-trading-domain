@@ -1,0 +1,14 @@
+@startuml RiskComponents
+!theme plain
+
+package "Risk Context" {
+  [Exposure Calculator] as EXC
+  [VaR Engine] as VAR
+  [Limit Manager] as LM
+  [Stress Tester] as ST
+}
+
+EXC --> LM : feeds exposure
+VAR --> LM : feeds risk metrics
+ST --> LM : scenario results
+@enduml

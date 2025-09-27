@@ -1,0 +1,14 @@
+@startuml C3_Components_Compliance
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(compliance_svc, "Compliance Service", "Python/Java", "KYC/AML, surveillance, regulatory reporting")
+
+Component(kyc_checker, "KYC Checker", "Module", "Collect docs, run AML screening")
+Component(sanctions, "Sanctions Screening", "Module", "Cross-check against sanctions lists")
+Component(surveillance, "Trade Surveillance", "Module", "Detect spoofing, layering, insider trading")
+Component(reg_reporting, "Regulatory Reporting", "Module", "Generate reports for regulators")
+
+Rel(kyc_checker, sanctions, "Check parties")
+Rel(surveillance, reg_reporting, "Escalate suspicious cases")
+@enduml

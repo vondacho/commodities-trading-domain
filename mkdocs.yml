@@ -1,0 +1,95 @@
+site_name: CTRM Reference Pack
+site_description: Commodity Trading & Risk Management (CTRM) Documentation
+site_author: Generated Pack
+repo_url: https://github.com/your-org/commodity-trading-ctrm
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - search.highlight
+    - search.share
+    - content.tabs.link
+nav:
+  - Home: index.md
+  - Domain:
+      - Overview: docs/domain.md
+  - Features (Gherkin):
+      - Market Data: features/market_data.feature
+      - Trade Execution: features/trade_execution.feature
+      - Risk: features/risk.feature
+      - Portfolio: features/portfolio.feature
+      - Logistics: features/logistics.feature
+      - Compliance: features/compliance.feature
+      - Settlements: features/settlements.feature
+  - Context Map:
+      - CML: cml/ctrm-context-map.cml
+  - Schemas & APIs:
+      - Event Schemas: schemas/
+      - OpenAPI Specs: apis/
+  - Infrastructure:
+      - Kafka Topics: infra/kafka-topics.md
+      - Outbox SQL: sql/outbox-ddl.sql
+      - Architecture Decisions: infra/adr-architecture-decisions.md
+  - Diagrams:
+      - Context Map: diagrams/context-map.puml
+      - Aggregates: diagrams/aggregates-trading.puml
+      - States:
+          - Order: diagrams/state-order.puml
+          - Invoice: diagrams/state-invoice.puml
+          - Shipment: diagrams/state-shipment.puml
+      - Activities:
+          - Settlement: diagrams/activity-settlement.puml
+          - KYC: diagrams/activity-kyc.puml
+          - Risk Limit: diagrams/activity-risk-limit.puml
+      - Sequences:
+          - Order Execution: diagrams/sequence-order-execution.puml
+          - Shipment Invoice: diagrams/sequence-shipment-invoice.puml
+          - Limit Breach: diagrams/sequence-limit-breach.puml
+      - Use Cases:
+          - Trading: diagrams/usecase-trading.puml
+          - Risk: diagrams/usecase-risk.puml
+          - Finance: diagrams/usecase-finance.puml
+          - Compliance: diagrams/usecase-compliance.puml
+      - Components:
+          - Trading: diagrams/component-trading.puml
+          - Risk: diagrams/component-risk.puml
+          - Finance: diagrams/component-finance.puml
+          - Logistics: diagrams/component-logistics.puml
+          - Compliance: diagrams/component-compliance.puml
+          - Market Data: diagrams/component-marketdata.puml
+          - Reference: diagrams/component-reference.puml
+          - IAM: diagrams/component-iam.puml
+      - Integration:
+          - Trading: diagrams/integration-trading.puml
+          - Risk: diagrams/integration-risk.puml
+          - Finance: diagrams/integration-finance.puml
+          - Compliance: diagrams/integration-compliance.puml
+          - Global: diagrams/integration-global.puml
+  - C4 Model:
+      - Overview: docs/c4/README.md
+      - C1 — System Context: diagrams/c4/C1-system-context.puml
+      - C2 — Containers: diagrams/c4/C2-containers.puml
+      - C3 — Components (Trading): diagrams/c4/C3-components-trading.puml
+      - C3 — Components (Risk): diagrams/c4/C3-components-risk.puml
+  - Deployment:
+          - Overview: diagrams/deployment-overview.puml
+          - Combined: diagrams/deployment-integration.puml
+plugins:
+  - search
+  - mkdocstrings
+  - awesome-pages
+  - mermaid2
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vondacho/commodity-trading-ctrm

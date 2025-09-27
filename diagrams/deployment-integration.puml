@@ -1,0 +1,72 @@
+@startuml DeploymentIntegration
+!theme plain
+
+actor Trader
+actor RiskManager
+actor OpsUser as Ops
+actor BackOffice
+actor ComplianceOfficer
+actor Exchange
+actor MarketDataProvider
+actor Bank
+actor Counterparty
+
+node "CTRM Platform" {
+  node "Front Office" {
+    [Trading Service] as TRS
+    [Market Data Service] as MDS
+  }
+  node "Middle Office" {
+    [Risk Service] as RKS
+    [Compliance Service] as CMS
+  }
+  node "Back Office" {
+    [Finance Service] as FNS
+    [Logistics Service] as LGS
+  }
+  node "Shared Services" {
+    [Reference Data Service] as RDS
+    [IAM Service] as IAMS
+  }
+}
+
+cloud "Event Backbone" as EB
+database "Trading DB" as DBT
+database "Risk DB" as DBR
+database "Finance DB" as DBF
+database "Logistics DB" as DBL
+database "Compliance DB" as DBC
+database "Reference DB" as DBREF
+
+' --- Actor to Services ---
+Trader --> TRS : Orders, Positions
+Trader --> MDS : Market Data
+RiskManager --> RKS : Limits, Exposure
+Ops --> LGS : Shipments, Inventory
+BackOffice --> FNS : Invoices, Settlements
+ComplianceOfficer --> CMS : Surveillance, KYC
+
+' --- Services to External ---
+TRS --> Exchange
+MDS --> MarketDataProvider
+FNS --> Bank
+FNS --> Counterparty
+
+' --- Service to Service via EB ---
+TRS --> EB
+MDS --> EB
+RKS --> EB
+FNS --> EB
+LGS --> EB
+CMS --> EB
+RDS --> EB
+
+' --- DB bindings ---
+TRS --> DBT
+RKS --> DBR
+FNS --> DBF
+LGS --> DBL
+CMS --> DBC
+RDS --> DBREF
+
+@enduml

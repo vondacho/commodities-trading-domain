@@ -1,0 +1,19 @@
+@startuml ComplianceUseCases
+!theme plain
+
+actor ComplianceOfficer
+actor Trader
+
+rectangle ComplianceSystem {
+  usecase "Run KYC/AML Checks" as UC1
+  usecase "Detect Market Abuse" as UC2
+  usecase "File Regulatory Reports" as UC3
+  usecase "Monitor Sanctions Lists" as UC4
+}
+
+ComplianceOfficer --> UC1
+ComplianceOfficer --> UC2
+ComplianceOfficer --> UC3
+ComplianceOfficer --> UC4
+Trader --> UC1
+@enduml

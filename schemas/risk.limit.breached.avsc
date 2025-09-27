@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "LimitBreached",
+  "namespace": "ctrm.risk",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "scope", "type": "string"},
+    {"name": "limitName", "type": "string"},
+    {"name": "threshold", "type": "double"},
+    {"name": "measured", "type": "double"},
+    {"name": "bookId", "type": ["null","string"], "default": null},
+    {"name": "traderId", "type": ["null","string"], "default": null}
+  ]
+}

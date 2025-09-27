@@ -1,0 +1,42 @@
+@startuml C1_System_Context
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+LAYOUT_WITH_LEGEND()
+
+Person(trader, "Trader", "Places and manages orders, monitors P&L.")
+Person(riskmgr, "Risk Manager", "Monitors exposure, VaR, limits.")
+Person(ops, "Ops / Back Office", "Manages settlements, invoices, inventory.")
+Person(compliance, "Compliance Officer", "KYC/AML, surveillance, regulatory reports.")
+System_Ext(exchanges, "Exchanges/Brokers", "Order routing and execution.")
+System_Ext(mdp, "Market Data Providers", "Prices, curves, news, weather.")
+System_Ext(banks, "Banks/Clearing", "Payments, confirmations, margin.")
+System_Ext(counterparties, "Counterparties", "Trade confirmations and payments.")
+
+System_Boundary(ctrm, "CTRM Platform") {
+  System(trading, "Trading", "Order capture, routing, positions.")
+  System(risk, "Risk", "Exposure, limits, VaR, stress.")
+  System(finance, "Finance & Settlements", "Confirmations, invoicing, cash.")
+  System(logistics, "Physical Logistics", "Shipments, delivery, inventory, quality.")
+  System(compliance_sys, "Compliance & Surveillance", "KYC/AML, abuse detection, reports.")
+  System(marketdata, "Market Data", "Feeds, curves, fallbacks.")
+  System(reference, "Reference Data", "Instruments, parties, calendars, units.")
+  System(iam, "Identity & Access", "Users, roles, approvals.")
+}
+
+Rel(trader, trading, "Place/cancel orders, view positions")
+Rel(riskmgr, risk, "Set limits, view exposure")
+Rel(ops, finance, "Settle, invoice, reconcile")
+Rel(ops, logistics, "Track shipments, inventory")
+Rel(compliance, compliance_sys, "Run KYC/AML, monitor abuse")
+
+Rel(trading, exchanges, "Route orders / receive fills")
+Rel(marketdata, mdp, "Ingest prices & curves")
+Rel(finance, banks, "Payments, confirms")
+Rel(finance, counterparties, "Send/receive invoices & confirms")
+
+Rel(trading, risk, "Publish trades/positions; receive limit results")
+Rel(trading, finance, "Trades for settlement; confirmations back")
+Rel(logistics, finance, "Delivery basis → invoice")
+Rel(reference, trading, "Reference/master data")
+Rel(iam, trading, "AuthN/Z")
+
+@enduml

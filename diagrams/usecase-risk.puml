@@ -1,0 +1,19 @@
+@startuml RiskUseCases
+!theme plain
+
+actor RiskManager
+actor Trader
+
+rectangle RiskSystem {
+  usecase "Monitor Exposure" as UC1
+  usecase "Run VaR Calculation" as UC2
+  usecase "Set Risk Limits" as UC3
+  usecase "Perform Stress Test" as UC4
+}
+
+RiskManager --> UC1
+RiskManager --> UC2
+RiskManager --> UC3
+RiskManager --> UC4
+Trader --> UC1 : view exposure
+@enduml

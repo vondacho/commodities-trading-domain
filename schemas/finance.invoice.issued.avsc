@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "InvoiceIssued",
+  "namespace": "ctrm.finance",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "invoiceId", "type": "string"},
+    {"name": "counterpartyId", "type": "string"},
+    {"name": "amount", "type": "double"},
+    {"name": "currency", "type": "string"},
+    {"name": "dueDate", "type": "string"},
+    {"name": "basisRef", "type": ["null","string"], "default": null}
+  ]
+}

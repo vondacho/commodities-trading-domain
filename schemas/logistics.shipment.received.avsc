@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "ShipmentReceived",
+  "namespace": "ctrm.logistics",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "physicalContractId", "type": "string"},
+    {"name": "shipmentId", "type": "string"},
+    {"name": "location", "type": "string"},
+    {"name": "receivedQty", "type": "long"},
+    {"name": "unit", "type": "string"},
+    {"name": "grade", "type": ["null","string"], "default": null}
+  ]
+}

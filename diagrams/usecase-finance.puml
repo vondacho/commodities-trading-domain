@@ -1,0 +1,21 @@
+@startuml FinanceUseCases
+!theme plain
+
+actor BackOffice
+actor Counterparty
+actor Bank
+
+rectangle FinanceSystem {
+  usecase "Generate Invoice" as UC1
+  usecase "Record Payment" as UC2
+  usecase "Reconcile Accounts" as UC3
+  usecase "Post to General Ledger" as UC4
+}
+
+BackOffice --> UC1
+BackOffice --> UC2
+BackOffice --> UC3
+BackOffice --> UC4
+Counterparty --> UC2
+Bank --> UC3
+@enduml
