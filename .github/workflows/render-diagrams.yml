@@ -22,6 +22,9 @@ jobs:
         run: |
           curl -L -o plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
 
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v1
+        
       - name: Render PUML to PNG/SVG
         run: |
           mkdir -p rendered-diagrams/png rendered-diagrams/svg
