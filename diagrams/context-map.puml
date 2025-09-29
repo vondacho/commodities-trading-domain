@@ -13,14 +13,14 @@ package "IAM" as IAM
 MD --> TR : ACL
 RD --> TR : Published Language
 TR --> RK : Customer/Supplier
-Trades → Risk
-Limits → Trading
+Trades -> Risk
+Limits -> Trading
 TR --> FN : Customer/Supplier
 + Shared Kernel (Trade schema)
 TR --> LG : Customer/Supplier
 + ACL
 LG --> FN : Conformist
-Delivery → Invoice
+Delivery -> Invoice
 TR --> CM : Events → Surveillance
 CM --> TR : Sanctions / Alerts
 IAM --> TR : Open Host Service
