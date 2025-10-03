@@ -1,5 +1,5 @@
 
-# Freight in Commodities Trading
+# DDD for Freight domain
 
 ## Bounded Contexts (DDD Strategic View)
 

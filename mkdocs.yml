@@ -16,8 +16,12 @@ theme:
     - search.share
     - content.tabs.link
 nav:
-  - CTRM:
+  - Commodities Trading:
     - Overview: index.md
+    - Domain:
+      - Strategic DDD: ctrm/domain/ctrm_ddd_strategic.md
+      - Tactical DDD: ctrm/domain/ctrm_ddd_tactical.md
+      - Sagas: ctrm/domain/ctrm_sagas.md
     - Features:
       - Use cases: ctrm/functional/ctrm_use_cases.md
       - Scenarios: ctrm/functional/ctrm_fn_scenarios.md
@@ -25,10 +29,6 @@ nav:
       - Overview: ctrm/nfr/ctrm_nfr.md
       - Scenarios: ctrm/nfr/ctrm_nfr_scenarios.md
       - Solutions: ctrm/nfr/ctrm_nfr_solutions.md
-    - Domain:
-      - Strategic DDD: ctrm/domain/ctrm_ddd_strategic.md
-      - Tactical DDD: ctrm/domain/ctrm_ddd_tactical.md
-      - Sagas: ctrm/domain/ctrm_sagas.md
     - Architecture:
       - Overview: ctrm/architecture/ctrm_system_architecture.md
       - ADRs: ctrm/architecture/adr/adr-architecture-decisions.md
@@ -93,13 +93,13 @@ nav:
     - Outages: ctrm/outages/ctrm_outages.md
   - Freight:
     - Overview: freight/freight_domain.md
+    - Domain: freight/domain/freight_ddd.md
     - Features:
       - Scenarios: freight/functional/freight_fn_scenarios.md
       - Use cases: freight/functional/freight_use_cases.md
     - NFR:
       - Overview: freight/nfr/freight_nfr.md
       - Scenarios: freight/nfr/freight_nfr_scenarios.md
-    - Domain: freight/domain/freight_ddd.md
     - Architecture: freight/architecture/freight_architecture.md
 plugins:
   - search

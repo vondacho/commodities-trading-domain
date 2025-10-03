@@ -1,4 +1,4 @@
-# Tactical DDD
+# Tactical DDD for Commodities Trading domain
 
 Diving into the strategic **bounded contexts**, let's visit **aggregates, entities, value objects, domain services, repositories, factories, and domain events**.
 

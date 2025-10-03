@@ -1,4 +1,4 @@
-# Testing Strategies
+# Testing Strategies in Commodities Trading systems
 
 In **commodities trading systems (CTRM/ETRM)**, **testing strategies** are absolutely critical because errors can lead to **huge financial losses, compliance breaches, or operational disruptions**.
 

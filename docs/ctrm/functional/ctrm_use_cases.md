@@ -1,4 +1,4 @@
-# IT System Use Cases in Commodities Trading
+# Use Cases in Commodities Trading systems
 
 An IT system that supports the commodities trading domain must serve both the front office (traders, risk managers) and the back/middle office (operations, finance, compliance), as well as integrate with external ecosystems (exchanges, logistics providers, banks).
 

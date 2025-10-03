@@ -1,4 +1,4 @@
-# Known Outages in Commodities Trading Ecosystem
+# Known Outages in Commodities Trading systems
 
 In **commodities trading**, outages can come from **internal CTRM/ETRM systems** *or* from **external dependencies** (exchanges, clearing houses, banks, data providers). Because outages can freeze trading or risk management, they are **high-impact events**.
 

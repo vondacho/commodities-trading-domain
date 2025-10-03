@@ -1,4 +1,4 @@
-# NFRs for Commodities Trading Systems
+# NFRs in Commodities Trading systems
 
 An IT system in commodities trading must be:
 

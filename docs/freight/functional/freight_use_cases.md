@@ -1,4 +1,4 @@
-## Core Use Cases
+## Core Use Cases in Freight systems
 
 ### Chartering & Freight Booking
 

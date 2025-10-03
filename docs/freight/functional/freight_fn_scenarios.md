@@ -1,4 +1,4 @@
-# Functional scenarios
+# Functional scenarios in Freight systems
 
 ## Chartering & Freight Booking
 

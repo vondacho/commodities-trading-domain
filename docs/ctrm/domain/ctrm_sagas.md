@@ -1,4 +1,4 @@
-# Sagas in CTRM systems
+# Sagas in Commodities Trading systems
 
 **Sagas** are especially relevant in **commodities trading systems**, where workflows span across multiple bounded contexts (Trade, Risk, Logistics, Settlement, Compliance) and no single transaction can cover them all.
 

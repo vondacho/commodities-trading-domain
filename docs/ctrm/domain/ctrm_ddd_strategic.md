@@ -1,4 +1,4 @@
-# Strategic DDD
+# Strategic DDD for Commodities Trading domain
 
 From a DDD perspective, commodities trading decomposes into **bounded contexts** around trade, risk, logistics, finance, compliance, and analytics.
 
