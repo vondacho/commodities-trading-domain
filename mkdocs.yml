@@ -16,8 +16,8 @@ theme:
     - search.share
     - content.tabs.link
 nav:
-  - Commodities Trading: commodities_trading_domain.md
   - CTRM:
+    - Overview: index.md
     - Features:
       - Use cases: ctrm/functional/ctrm_use_cases.md
       - Scenarios: ctrm/functional/ctrm_fn_scenarios.md
