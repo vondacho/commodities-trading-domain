@@ -13,75 +13,107 @@ theme:
     - search.share
     - content.tabs.link
 nav:
-  - Home: index.md
-  - Domain:
-      - Overview: docs/domain.md
-  - Features (Gherkin):
-      - Market Data: features/market_data.feature
-      - Trade Execution: features/trade_execution.feature
-      - Risk: features/risk.feature
-      - Portfolio: features/portfolio.feature
-      - Logistics: features/logistics.feature
-      - Compliance: features/compliance.feature
-      - Settlements: features/settlements.feature
-  - Context Map:
-      - CML: cml/ctrm-context-map.cml
-  - Schemas & APIs:
-      - Event Schemas: schemas/
-      - OpenAPI Specs: apis/
-  - Infrastructure:
-      - Kafka Topics: infra/kafka-topics.md
-      - Outbox SQL: sql/outbox-ddl.sql
-      - Architecture Decisions: infra/adr-architecture-decisions.md
-  - Diagrams:
-      - Context Map: diagrams/context-map.puml
-      - Aggregates: diagrams/aggregates-trading.puml
-      - States:
-          - Order: diagrams/state-order.puml
-          - Invoice: diagrams/state-invoice.puml
-          - Shipment: diagrams/state-shipment.puml
-      - Activities:
-          - Settlement: diagrams/activity-settlement.puml
-          - KYC: diagrams/activity-kyc.puml
-          - Risk Limit: diagrams/activity-risk-limit.puml
-      - Sequences:
-          - Order Execution: diagrams/sequence-order-execution.puml
-          - Shipment Invoice: diagrams/sequence-shipment-invoice.puml
-          - Limit Breach: diagrams/sequence-limit-breach.puml
-      - Use Cases:
-          - Trading: diagrams/usecase-trading.puml
-          - Risk: diagrams/usecase-risk.puml
-          - Finance: diagrams/usecase-finance.puml
-          - Compliance: diagrams/usecase-compliance.puml
-      - Components:
-          - Trading: diagrams/component-trading.puml
-          - Risk: diagrams/component-risk.puml
-          - Finance: diagrams/component-finance.puml
-          - Logistics: diagrams/component-logistics.puml
-          - Compliance: diagrams/component-compliance.puml
-          - Market Data: diagrams/component-marketdata.puml
-          - Reference: diagrams/component-reference.puml
-          - IAM: diagrams/component-iam.puml
-      - Integration:
-          - Trading: diagrams/integration-trading.puml
-          - Risk: diagrams/integration-risk.puml
-          - Finance: diagrams/integration-finance.puml
-          - Compliance: diagrams/integration-compliance.puml
-          - Global: diagrams/integration-global.puml
-  - C4 Model:
-      - Overview: docs/c4/README.md
-      - C1 — System Context: diagrams/c4/C1-system-context.puml
-      - C2 — Containers: diagrams/c4/C2-containers.puml
-      - C3 — Components (Trading): diagrams/c4/C3-components-trading.puml
-      - C3 — Components (Risk): diagrams/c4/C3-components-risk.puml
-  - Deployment:
-          - Overview: diagrams/deployment-overview.puml
-          - Combined: diagrams/deployment-integration.puml
+  - Commodities Trading: commodities_trading_domain.md
+  - CTRM:
+    - Features:
+      - Use cases: ctrm/functional/ctrm_use_cases.md
+      - Scenarios: ctrm/functional/ctrm_fn_scenarios.md
+    - NFRs:
+      - Overview: ctrm/nfr/ctrm_nfr.md
+      - Scenarios: ctrm/nfr/ctrm_nfr_scenarios.md
+      - Solutions: ctrm/nfr/ctrm_nfr_solutions.md
+    - Domain:
+      - Strategic DDD: ctrm/domain/ctrm_ddd_strategic.md
+      - Tactical DDD: ctrm/domain/ctrm_ddd_tactical.md
+      - Sagas: ctrm/domain/ctrm_sagas.md
+    - Architecture:
+      - Overview: ctrm/architecture/ctrm_system_architecture.md
+      - ADRs: ctrm/architecture/adr/adr-architecture-decisions.md
+      - Infrastructure:
+        - Kafka Topics: ctrm/architecture/infra/kafka-topics.md
+        - Outbox SQL: ctrm/architecture/sql/outbox-ddl.md
+      - Diagrams:
+        - Context Map:
+          - PlantUML: ctrm/architecture/diagrams/out/ddd/CTRMContextMap.svg
+          - CML: ctrm/architecture/cml/ctrm-context-map.cml
+        - Aggregates:
+          - Trading: ctrm/architecture/diagrams/out/ddd/TradingAggregates.svg
+        - States:
+          - Order: ctrm/architecture/diagrams/out/state/OrderLifecycle.svg
+          - Invoice: ctrm/architecture/diagrams/out/state/InvoiceLifecycle.svg
+          - Shipment: ctrm/architecture/diagrams/out/state/ShipmentLifecycle.svg
+        - Activities:
+          - Settlement: ctrm/architecture/diagrams/out/activity/SettlementProcess.svg
+          - KYC: ctrm/architecture/diagrams/out/activity/KYCCheckProcess.svg
+          - Risk Limit: ctrm/architecture/diagrams/out/activity/RiskLimitMonitoring.svg
+        - Sequences:
+          - Order Execution: ctrm/architecture/diagrams/out/sequence/OrderExecutionFlow.svg
+          - Shipment Invoice: ctrm/architecture/diagrams/out/sequence/ShipmentInvoiceFlow.svg
+          - Limit Breach: ctrm/architecture/diagrams/out/sequence/LimitBreachFlow.svg
+        - Use Cases:
+          - Trading: ctrm/architecture/diagrams/out/usecase/TradingUseCases.svg
+          - Risk: ctrm/architecture/diagrams/out/usecase/RiskUseCases.svg
+          - Finance: ctrm/architecture/diagrams/out/usecase/FinanceUseCases.svg
+          - Compliance: ctrm/architecture/diagrams/out/usecase/ComplianceUseCases.svg
+        - Components:
+          - Trading: ctrm/architecture/diagrams/out/component/TradingComponents.svg
+          - Risk: ctrm/architecture/diagrams/out/component/RiskComponents.svg
+          - Finance: ctrm/architecture/diagrams/out/component/FinanceComponents.svg
+          - Logistics: ctrm/architecture/diagrams/out/component/LogisticsComponents.svg
+          - Compliance: ctrm/architecture/diagrams/out/component/ComplianceComponents.svg
+          - Market Data: ctrm/architecture/diagrams/out/component/MarketDataComponents.svg
+          - Reference Data: ctrm/architecture/diagrams/out/component/ReferenceDataComponents.svg
+          - IAM: ctrm/architecture/diagrams/out/component/IAMComponents.svg
+        - Integration:
+          - Trading: ctrm/architecture/diagrams/out/integration/TradingIntegration.svg
+          - Risk: ctrm/architecture/diagrams/out/integration/RiskIntegration.svg
+          - Finance: ctrm/architecture/diagrams/out/integration/FinanceIntegration.svg
+          - Compliance: ctrm/architecture/diagrams/out/integration/ComplianceIntegration.svg
+          - Global: ctrm/architecture/diagrams/out/integration/GlobalIntegration.svg
+        - C4 Model:
+          - C1 — System Landscape: ctrm/architecture/diagrams/out/c4/C1_System_Landscape.svg
+          - C1 — System Context: ctrm/architecture/diagrams/out/c4/C1_System_Context.svg
+          - C2 — Containers: ctrm/architecture/diagrams/out/c4/C2_Containers.svg
+          - C3 — Trading: ctrm/architecture/diagrams/out/c4/C3_Components_Trading.svg
+          - C3 — Risk: ctrm/architecture/diagrams/out/c4/C3_Components_Risk.svg
+          - C3 — Compliance: ctrm/architecture/diagrams/out/c4/C3_Components_Compliance.svg
+          - C3 — Finance: ctrm/architecture/diagrams/out/c4/C3_Components_Finance.svg
+          - C3 — Logistics: ctrm/architecture/diagrams/out/c4/C3_Components_Logistics.svg
+          - C3 — MarketData: ctrm/architecture/diagrams/out/c4/C3_Components_MarketData.svg
+          - C3 — Reference: ctrm/architecture/diagrams/out/c4/C3_Components_Reference.svg
+          - C3 — IAM: ctrm/architecture/diagrams/out/c4/C3_Components_IAM.svg
+        - Deployment:
+          - Overview: ctrm/architecture/diagrams/out/deployment/CTRMDeployment.svg
+          - Combined: ctrm/architecture/diagrams/out/deployment/DeploymentIntegration.svg
+    - Testing:
+      - Strategies: ctrm/testing/ctrm_testing_strategies.md
+    - Outages: ctrm/outages/ctrm_outages.md
+  - Freight:
+    - Overview: freight/freight_domain.md
+    - Features:
+      - Scenarios: freight/functional/freight_fn_scenarios.md
+      - Use cases: freight/functional/freight_use_cases.md
+    - NFR:
+      - Overview: freight/nfr/freight_nfr.md
+      - Scenarios: freight/nfr/freight_nfr_scenarios.md
+    - Domain: freight/domain/freight_ddd.md
+    - Architecture: freight/architecture/freight_architecture.md
 plugins:
   - search
   - mkdocstrings
   - awesome-pages
   - mermaid2
+  - build_plantuml:
+      render: 'server' # or "local" for local rendering
+      server: 'http://www.plantuml.com/plantuml' # official plantuml server
+      disable_ssl_certificate_validation: true # for self-signed and invalid certs
+      output_format: 'svg' # or "png"
+      allow_multiple_roots: false # in case your codebase contains more locations for diagrams (all ending in diagram_root)
+      diagram_root: 'docs/architecture/diagrams' # should reside under docs_dir
+      output_folder: 'out'
+      input_folder: 'src'
+      input_extensions: '' # comma separated list of extensions to parse, by default every file is parsed
+
 markdown_extensions:
   - admonition
   - codehilite
@@ -89,7 +121,3 @@ markdown_extensions:
   - meta
   - toc:
       permalink: true
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/vondacho/commodity-trading-ctrm
