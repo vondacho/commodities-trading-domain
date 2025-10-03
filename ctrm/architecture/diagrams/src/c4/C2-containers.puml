@@ -1,0 +1,51 @@
+@startuml C2_Containers
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_WITH_LEGEND()
+
+Person(trader, "Trader")
+System_Boundary(ctrm, "CTRM Platform") {
+  Container(ui, "Web UI", "React/TypeScript", "Trading screens, risk dashboards, ops UIs")
+  Container(trading_svc, "Trading Service", "Java/Spring or Python/FastAPI", "Orders, trades, positions")
+  Container(risk_svc, "Risk Service", "JVM/Scala/Python", "Exposure/VaR/limits")
+  Container(finance_svc, "Finance Service", "Java/Kotlin", "Confirmations, invoices, cash")
+  Container(log_svc, "Logistics Service", "Java/Python", "Shipments, inventory, quality")
+  Container(compliance_svc, "Compliance Service", "Python/Java", "KYC/AML, surveillance, reports")
+  Container(marketdata_svc, "Market Data Service", "Java/Go", "Feed handlers, curves, fallbacks")
+  Container(refdata_svc, "Reference Data Service", "Java/Python", "Instruments, parties, calendars")
+  Container(iam_svc, "IAM Service", "Keycloak/Auth0", "Users, roles, SSO")
+  ContainerDb(db_trading, "Trading DB", "PostgreSQL", "Orders, trades, positions")
+  ContainerDb(db_risk, "Risk DB", "PostgreSQL", "Exposure, metrics, limits")
+  ContainerDb(db_fin, "Finance DB", "PostgreSQL", "Invoices, cash, confirms")
+  ContainerDb(db_log, "Logistics DB", "PostgreSQL", "Contracts, shipments, inventory")
+  ContainerDb(db_cmp, "Compliance DB", "PostgreSQL", "KYC, cases, reports")
+  ContainerDb(db_ref, "Reference DB", "PostgreSQL", "Master data")
+  ContainerQueue(kafka, "Event Backbone", "Kafka/Pulsar", "Domain events, CDC/outbox")
+}
+
+Rel(trader, ui, "Uses")
+Rel(ui, trading_svc, "REST/GraphQL")
+Rel(ui, risk_svc, "REST/GraphQL")
+Rel(ui, finance_svc, "REST")
+Rel(ui, log_svc, "REST")
+Rel(ui, compliance_svc, "REST")
+
+Rel(trading_svc, kafka, "Publishes/consumes")
+Rel(risk_svc, kafka, "Publishes/consumes")
+Rel(finance_svc, kafka, "Publishes/consumes")
+Rel(log_svc, kafka, "Publishes/consumes")
+Rel(compliance_svc, kafka, "Publishes/consumes")
+Rel(marketdata_svc, kafka, "Publishes prices/curves")
+
+Rel(trading_svc, db_trading, "CRUD")
+Rel(risk_svc, db_risk, "CRUD")
+Rel(finance_svc, db_fin, "CRUD")
+Rel(log_svc, db_log, "CRUD")
+Rel(compliance_svc, db_cmp, "CRUD")
+Rel(refdata_svc, db_ref, "CRUD")
+
+Rel(trading_svc, marketdata_svc, "Query curves/prices")
+Rel(trading_svc, risk_svc, "Pre-trade limit check")
+Rel(log_svc, finance_svc, "Delivery basis → invoice")
+Rel(refdata_svc, trading_svc, "Master data")
+
+@enduml

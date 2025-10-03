@@ -1,0 +1,14 @@
+@startuml FinanceComponents
+!theme plain
+
+package "Finance & Settlements" {
+  [Trade Confirmation] as CONF
+  [Invoice Generator] as INV
+  [Cash Reconciliation] as CASH
+  [Accounting Integration] as ACC
+}
+
+CONF --> INV : confirmed trades
+INV --> CASH : invoice payments
+CASH --> ACC : post to GL
+@enduml

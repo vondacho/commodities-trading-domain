@@ -1,0 +1,15 @@
+@startuml C3_Components_Logistics
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(logistics_svc, "Logistics Service", "Java/Python", "Shipments, inventory, quality")
+
+Component(contract_mgr, "Contract Manager", "Module", "Capture and manage physical contracts")
+Component(ship_tracker, "Shipment Tracker", "Module", "Track shipments, ETAs, transport")
+Component(inventory_mgr, "Inventory Manager", "Module", "Manage stock in warehouses/tanks")
+Component(quality_ctrl, "Quality Control", "Module", "Record inspections, disputes")
+
+Rel(contract_mgr, ship_tracker, "Schedules shipments")
+Rel(ship_tracker, inventory_mgr, "Update stock on arrivals")
+Rel(quality_ctrl, inventory_mgr, "Adjust lots on disputes")
+@enduml

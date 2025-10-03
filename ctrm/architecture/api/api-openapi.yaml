@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: CTRM Context APIs (Placeholder)
+  version: 0.1.0
+paths:
+  /trading/orders:
+    post:
+      summary: PlaceOrder (placeholder)
+      responses:
+        '202':
+          description: Order accepted for routing
+  /risk/limits:
+    post:
+      summary: SetRiskLimit (placeholder)
+      responses:
+        '200':
+          description: Limit updated

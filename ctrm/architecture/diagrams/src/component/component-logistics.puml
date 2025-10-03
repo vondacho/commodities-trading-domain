@@ -1,0 +1,14 @@
+@startuml LogisticsComponents
+!theme plain
+
+package "Physical Logistics" {
+  [Contract Manager] as CM
+  [Shipment Tracker] as ST
+  [Inventory Manager] as IM
+  [Quality Control] as QC
+}
+
+CM --> ST : schedules shipments
+ST --> IM : updates inventory
+QC --> IM : adjusts lots
+@enduml

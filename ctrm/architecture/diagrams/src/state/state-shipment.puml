@@ -1,0 +1,12 @@
+@startuml ShipmentLifecycle
+!theme plain
+
+[*] --> Scheduled
+Scheduled --> InTransit : Departed
+InTransit --> Arrived : ArrivalConfirmed
+Arrived --> Received : RecordArrival
+Received --> QualityDisputed : RaiseQualityDispute
+
+Received --> [*]
+QualityDisputed --> [*]
+@enduml

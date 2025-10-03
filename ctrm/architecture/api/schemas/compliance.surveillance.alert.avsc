@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "SurveillanceAlertRaised",
+  "namespace": "ctrm.compliance",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "caseId", "type": "string"},
+    {"name": "pattern", "type": "string"},
+    {"name": "severity", "type": {"type":"enum","name":"Severity","symbols":["LOW","MEDIUM","HIGH","CRITICAL"]}},
+    {"name": "orderIds", "type": {"type":"array","items":"string"}}
+  ]
+}

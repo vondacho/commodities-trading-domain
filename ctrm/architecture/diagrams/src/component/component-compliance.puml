@@ -1,0 +1,13 @@
+@startuml ComplianceComponents
+!theme plain
+
+package "Compliance & Surveillance" {
+  [KYC/AML Checker] as KYC
+  [Sanctions Screening] as SS
+  [Trade Surveillance] as TS
+  [Regulatory Reporter] as RR
+}
+
+KYC --> SS : enriches party checks
+TS --> RR : suspicious activity reports
+@enduml

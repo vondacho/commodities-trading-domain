@@ -1,0 +1,66 @@
+@startuml CTRMDeployment
+!theme plain
+
+node "User Workstations" {
+  [Trader UI]
+  [Risk Manager UI]
+  [Ops/BackOffice UI]
+  [Compliance UI]
+}
+
+node "CTRM Platform" {
+  node "Front Office Services" {
+    [Trading Service]
+    [Market Data Service]
+  }
+  node "Middle Office Services" {
+    [Risk Service]
+    [Compliance Service]
+  }
+  node "Back Office Services" {
+    [Finance & Settlements Service]
+    [Logistics Service]
+  }
+  node "Shared Services" {
+    [Reference Data Service]
+    [IAM Service]
+  }
+}
+
+cloud "Event Backbone (Kafka/Pulsar)" as K
+database "Trade Store" as DBTrade
+database "Risk DB" as DBRisk
+database "Finance DB" as DBFin
+database "Logistics DB" as DBLog
+database "Compliance DB" as DBCmp
+database "Reference DB" as DBRef
+
+[Trader UI] --> [Trading Service]
+[Risk Manager UI] --> [Risk Service]
+[Ops/BackOffice UI] --> [Finance & Settlements Service]
+[Ops/BackOffice UI] --> [Logistics Service]
+[Compliance UI] --> [Compliance Service]
+
+[Trading Service] --> K
+[Market Data Service] --> K
+[Risk Service] --> K
+[Finance & Settlements Service] --> K
+[Logistics Service] --> K
+[Compliance Service] --> K
+
+[Trading Service] --> DBTrade
+[Risk Service] --> DBRisk
+[Finance & Settlements Service] --> DBFin
+[Logistics Service] --> DBLog
+[Compliance Service] --> DBCmp
+[Reference Data Service] --> DBRef
+
+cloud "Exchanges/Brokers" as EX
+cloud "Market Data Providers" as MDP
+cloud "Banks / Clearing Houses" as BKH
+
+[Trading Service] --> EX
+[Market Data Service] --> MDP
+[Finance & Settlements Service] --> BKH
+
+@enduml

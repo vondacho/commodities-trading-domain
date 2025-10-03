@@ -1,0 +1,21 @@
+@startuml C3_Components_Trading
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(trading_svc, "Trading Service", "JVM/Python", "Orders, trades, positions")
+
+Component(order_api, "Order API", "REST/GraphQL", "Place/amend/cancel orders")
+Component(sor, "Smart Order Router", "Module", "Routes to venues based on rules")
+Component(exec_listener, "Execution Listener", "Module", "Captures fills from venues")
+Component(position_engine, "Position Engine", "Module", "Netting, average price, lifecycle")
+Component(dup_guard, "Duplicate Guard", "Module", "Detects duplicate submissions")
+Component(pretrade, "Pre-Trade Risk Adapter", "Module", "Checks limits with Risk service")
+Component(md_adapter, "Market Data Adapter", "Module", "Pricing & curves")
+
+Rel(order_api, dup_guard, "Check")
+Rel(order_api, pretrade, "Check limits")
+Rel(order_api, sor, "Route")
+Rel(exec_listener, position_engine, "Update positions")
+Rel(position_engine, order_api, "Expose positions")
+Rel(md_adapter, order_api, "Provide prices")
+@enduml

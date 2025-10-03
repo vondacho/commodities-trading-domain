@@ -1,0 +1,270 @@
+ContextMap CTRMContextMap {
+  contains TradingContext, RiskContext, LogisticsContext, FinanceContext, ComplianceContext, MarketDataContext, ReferenceDataContext, IAMContext
+
+  TradingContext -> RiskContext {
+    implementationTechnology = "events"
+    relationship = CustomerSupplier
+    upstreamDownstream = UpstreamDownstream
+    mapping = "Trading publishes trades/positions; Risk provides limit decisions"
+  }
+
+  TradingContext -> FinanceContext {
+    implementationTechnology = "events"
+    relationship = CustomerSupplier
+    upstreamDownstream = UpstreamDownstream
+  }
+
+  TradingContext -> LogisticsContext {
+    implementationTechnology = "events"
+    relationship = CustomerSupplier
+    upstreamDownstream = UpstreamDownstream
+    antiCorruptionLayer
+  }
+
+  LogisticsContext -> FinanceContext {
+    implementationTechnology = "events"
+    relationship = Conformist
+    upstreamDownstream = UpstreamDownstream
+    mapping = "Delivery events generate invoicing basis"
+  }
+
+  MarketDataContext -> TradingContext {
+    relationship = UpstreamDownstream
+    antiCorruptionLayer
+  }
+
+  ReferenceDataContext -> TradingContext {
+    relationship = UpstreamDownstream
+    mapping = "Published Language"
+  }
+
+  ReferenceDataContext -> RiskContext {
+    relationship = UpstreamDownstream
+  }
+
+  ReferenceDataContext -> FinanceContext {
+    relationship = UpstreamDownstream
+  }
+
+  ReferenceDataContext -> LogisticsContext {
+    relationship = UpstreamDownstream
+  }
+
+  ComplianceContext <- TradingContext {
+    implementationTechnology = "events"
+    relationship = Partnership
+    mapping = "Orders/Trades feed surveillance; Compliance can block via sanctions"
+  }
+
+  IAMContext -> TradingContext {
+    relationship = OpenHostService
+  }
+}
+
+BoundedContext TradingContext {
+  type = CORE_DOMAIN
+  domainVisionStatement = "Deal capture, pricing, execution, positions"
+
+  Aggregate Order {
+    Entity Order {
+      String id
+      String side
+      String instrument
+      long qty
+      decimal price
+      String timeInForce
+      String status
+      String route
+    }
+    domainEvents {
+      OrderPlaced, OrderRouted, OrderPartiallyFilled, OrderRejected, OrderCancelled
+    }
+    commands { PlaceOrder, AmendOrder, CancelOrder }
+  }
+
+  Aggregate Trade {
+    Entity Trade {
+      String tradeId
+      String orderId
+      String instrument
+      long qty
+      decimal price
+      String venue
+      DateTime timestamp
+    }
+    domainEvents { TradeCaptured }
+  }
+
+  Aggregate Position {
+    Entity Position {
+      String bookId
+      String instrument
+      long netQty
+      decimal avgPrice
+    }
+    domainEvents { PositionUpdated }
+  }
+}
+
+BoundedContext RiskContext {
+  type = CORE_DOMAIN
+  domainVisionStatement = "Exposure, VaR, stress testing, limits"
+
+  Aggregate RiskLimit {
+    Entity RiskLimit {
+      String scope
+      decimal threshold
+      String breachPolicy
+    }
+    domainEvents { LimitBreached, LimitRestored }
+    commands { SetRiskLimit }
+  }
+
+  Aggregate Valuation {
+    Entity Valuation {
+      String method
+      String curveRef
+    }
+    domainEvents { VaRUpdated, ExposureUpdated }
+  }
+}
+
+BoundedContext LogisticsContext {
+  type = SUPPORTING_DOMAIN
+  domainVisionStatement = "Physical deliveries, shipping, inventory, quality"
+
+  Aggregate PhysicalContract {
+    Entity PhysicalContract {
+      String id
+      String commodity
+      long quantity
+      String incoterms
+      String qualitySpec
+      String schedule
+    }
+    domainEvents { ShipmentScheduled, ShipmentReceived, QualityDisputed }
+    commands { ScheduleShipment, RecordArrival, RaiseQualityDispute }
+  }
+
+  Aggregate InventoryLot {
+    Entity InventoryLot {
+      String id
+      String location
+      long qty
+      String grade
+      String ownership
+    }
+    domainEvents { InventoryUpdated }
+  }
+}
+
+BoundedContext FinanceContext {
+  type = SUPPORTING_DOMAIN
+  domainVisionStatement = "Confirmations, invoicing, payments, FX, accounting"
+
+  Aggregate Confirmation {
+    Entity Confirmation {
+      String id
+      String status
+    }
+    domainEvents { ConfirmationMatched, ConfirmationMismatch }
+    commands { MatchConfirmation }
+  }
+
+  Aggregate Invoice {
+    Entity Invoice {
+      String id
+      decimal amount
+      String currency
+      Date dueDate
+      String status
+    }
+    domainEvents { InvoiceIssued, ShortPaymentDetected, PaymentReconciled }
+    commands { GenerateInvoice, RecordPayment }
+  }
+}
+
+BoundedContext ComplianceContext {
+  type = SUPPORTING_DOMAIN
+  domainVisionStatement = "KYC/AML, sanctions, surveillance, regulatory reports"
+
+  Aggregate CounterpartyScreening {
+    Entity CounterpartyScreening {
+      String counterpartyId
+      String kycStatus
+      boolean sanctionsHit
+    }
+    domainEvents { SanctionsHit }
+    commands { RunKYC }
+  }
+
+  Aggregate SurveillanceCase {
+    Entity SurveillanceCase {
+      String id
+      String pattern
+      String severity
+      String disposition
+    }
+    domainEvents { SurveillanceAlertRaised }
+    commands { OpenSurveillanceCase }
+  }
+
+  Aggregate RegulatoryReport {
+    Entity RegulatoryReport {
+      String id
+      String period
+      String scope
+      String status
+    }
+    domainEvents { ReportSubmitted, ReportFailed }
+    commands { SubmitRegulatoryReport }
+  }
+}
+
+BoundedContext MarketDataContext {
+  type = GENERIC_SUBDOMAIN
+  domainVisionStatement = "Real-time prices, curves, vol surfaces with fallbacks"
+
+  Aggregate PriceFeed {
+    Entity PriceFeed {
+      String id
+      String primarySource
+      String backupSource
+      String status
+    }
+    domainEvents { PrimaryFeedDown, FallbackActivated }
+    commands { ActivateFallback }
+  }
+
+  Aggregate Curve {
+    Entity Curve {
+      String id
+      String instrument
+      String method
+    }
+    domainEvents { CurvePublished }
+    commands { PublishCurve }
+  }
+}
+
+BoundedContext ReferenceDataContext {
+  type = GENERIC_SUBDOMAIN
+  domainVisionStatement = "Instruments, units, calendars, counterparties, specs"
+
+  Aggregate Counterparty {
+    Entity Counterparty {
+      String id
+      String legalName
+      String creditTerms
+    }
+  }
+
+  ValueObject Calendar { String code }
+  ValueObject Unit { String code }
+  ValueObject CommoditySpec { String code, String description }
+}
+
+BoundedContext IAMContext {
+  type = GENERIC_SUBDOMAIN
+  domainVisionStatement = "Users, roles, entitlements, approvals"
+}

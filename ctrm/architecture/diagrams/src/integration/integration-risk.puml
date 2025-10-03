@@ -1,0 +1,27 @@
+@startuml RiskIntegration
+!theme plain
+
+actor RiskManager
+actor Trader
+
+package "Risk Context" {
+  [Exposure Calculator] as EXC
+  [VaR Engine] as VAR
+  [Limit Manager] as LM
+  [Stress Tester] as ST
+}
+
+RiskManager --> (Set Risk Limits)
+RiskManager --> (Monitor Exposure)
+RiskManager --> (Run VaR Calculation)
+RiskManager --> (Perform Stress Test)
+Trader --> (Monitor Exposure)
+
+(Set Risk Limits) --> LM
+(Monitor Exposure) --> EXC
+(Run VaR Calculation) --> VAR
+(Perform Stress Test) --> ST
+EXC --> LM
+VAR --> LM
+ST --> LM
+@enduml

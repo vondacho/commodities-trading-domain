@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "TradeCaptured",
+  "namespace": "ctrm.trading",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "tradeId", "type": "string"},
+    {"name": "orderId", "type": "string"},
+    {"name": "instrument", "type": "string"},
+    {"name": "quantity", "type": "long"},
+    {"name": "price", "type": "double"},
+    {"name": "venue", "type": "string"}
+  ]
+}

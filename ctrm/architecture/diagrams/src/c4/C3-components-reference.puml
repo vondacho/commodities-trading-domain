@@ -1,0 +1,15 @@
+@startuml C3_Components_Reference
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+Container(refdata_svc, "Reference Data Service", "Java/Python", "Instruments, parties, calendars, units")
+
+Component(instr_catalog, "Instrument Catalog", "Module", "Defines tradable instruments and specs")
+Component(cp_master, "Counterparty Master", "Module", "Stores counterparty data and KYC flags")
+Component(cal_service, "Calendar Service", "Module", "Trading days, holidays, settlement dates")
+Component(unit_conv, "Unit Conversion", "Module", "Converts measurement units (bbl→MT)")
+
+Rel(instr_catalog, cp_master, "Link contracts to parties")
+Rel(cal_service, instr_catalog, "Provide calendars")
+Rel(unit_conv, instr_catalog, "Normalize units")
+@enduml

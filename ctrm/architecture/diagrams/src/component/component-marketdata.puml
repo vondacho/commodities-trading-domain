@@ -1,0 +1,15 @@
+@startuml MarketDataComponents
+!theme plain
+
+package "Market Data" {
+  [Feed Handler] as FH
+  [Price Normalizer] as PN
+  [Curve Builder] as CB
+  [Fallback Manager] as FM
+}
+
+FH --> PN : raw ticks
+PN --> CB : cleaned data
+FH --> FM : detects failures
+FM --> PN : switch source
+@enduml

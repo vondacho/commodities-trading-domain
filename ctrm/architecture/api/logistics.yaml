@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info: { title: Logistics API, version: 0.1.0 }
+paths:
+  /contracts/{id}/shipments:
+    post:
+      summary: RecordArrival
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shipmentId: { type: string }
+                location: { type: string }
+                receivedQty: { type: integer }
+                unit: { type: string }
+                grade: { type: string, nullable: true }
+      responses: { '200': { description: Recorded } }
+  /inventory:
+    get:
+      summary: Query inventory
+      parameters:
+        - in: query; name: location; schema: { type: string }
+        - in: query; name: commodity; schema: { type: string }
+      responses: { '200': { description: OK } }

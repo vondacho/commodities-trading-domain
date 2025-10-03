@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "FallbackActivated",
+  "namespace": "ctrm.marketdata",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "priceFeedId", "type": "string"},
+    {"name": "fromSource", "type": "string"},
+    {"name": "toSource", "type": "string"},
+    {"name": "reason", "type": "string"}
+  ]
+}

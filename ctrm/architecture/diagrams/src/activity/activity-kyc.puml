@@ -1,0 +1,16 @@
+@startuml KYCCheckProcess
+!theme plain
+
+start
+:New Counterparty Detected;
+:Collect Identification Docs;
+:Run Sanctions Screening;
+if (Sanctions Hit?) then (Yes)
+  :Block Counterparty;
+  :Escalate to Compliance;
+else (No)
+  :Assign Risk Rating;
+  :Approve for Trading;
+endif
+stop
+@enduml

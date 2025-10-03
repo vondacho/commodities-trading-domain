@@ -1,0 +1,35 @@
+@startuml C1_System_Landscape
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+title System Landscape – Commodities Trading (CTRM)
+
+Person(trader, "Trader", "Books and hedges trades")
+Person(risk, "Risk Manager", "Monitors exposure, VaR, P&L")
+Person(ops, "Operator", "Schedules shipments, manages inventory")
+Person(fin, "Finance Officer", "Manages settlements & LCs")
+Person(comp, "Compliance Officer", "Regulatory reporting & audits")
+
+System(ctrm, "CTRM Platform", "Trade capture, risk, logistics, settlement, compliance")
+
+System_Ext(exch, "Exchanges (CME/ICE/LME)", "Futures & options trading venues")
+System_Ext(market, "Market Data Providers (Bloomberg/Refinitiv/Platts)", "Prices, curves, benchmarks")
+System_Ext(bank, "Banks / SWIFT", "Letters of Credit, payments, confirmations")
+System_Ext(erp, "ERP (SAP/Oracle)", "Accounting, GL, invoicing")
+System_Ext(repo, "Regulatory TRs/ARMs", "EMIR/MiFID/REMIT reporting")
+System_Ext(track, "Logistics/Vessel Tracking", "ETA, AIS, congestion signals")
+System_Ext(idp, "Identity Provider", "SSO, MFA, RBAC")
+
+Rel(trader, ctrm, "Captures trades, views positions")
+Rel(risk, ctrm, "Views exposures, runs scenarios")
+Rel(ops, ctrm, "Creates shipments, manages storage")
+Rel(fin, ctrm, "Initiates settlements/LCs")
+Rel(comp, ctrm, "Generates & submits reports")
+
+Rel(ctrm, exch, "Exec/confirm trades (FIX/REST/SFTP)")
+Rel(ctrm, market, "Ingest market data (feeds)")
+Rel(ctrm, bank, "LCs, payments (SWIFT/ISO20022)")
+Rel(ctrm, erp, "Postings, invoices (API/ETL)")
+Rel(ctrm, repo, "Regulatory submissions (EMIR/MiFID)")
+Rel(ctrm, track, "Pull shipment/vessel data")
+Rel(ctrm, idp, "AuthN/AuthZ")
+
+@enduml

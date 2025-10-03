@@ -1,0 +1,20 @@
+@startuml SettlementProcess
+!theme plain
+
+start
+:Trade Confirmed;
+:Generate Invoice;
+:Send Invoice to Counterparty;
+if (Payment Received?) then (Yes)
+  :Reconcile Payment;
+  if (Amount Matches?) then (Yes)
+    :Mark Invoice as Paid;
+  else (No)
+    :Record Short Payment;
+    :Open Dispute Case;
+  endif
+else (No)
+  :Mark Invoice as Overdue;
+endif
+stop
+@enduml

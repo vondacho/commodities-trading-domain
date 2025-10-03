@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "PositionUpdated",
+  "namespace": "ctrm.trading",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "bookId", "type": "string"},
+    {"name": "instrument", "type": "string"},
+    {"name": "netQty", "type": "long"},
+    {"name": "avgPrice", "type": "double"}
+  ]
+}

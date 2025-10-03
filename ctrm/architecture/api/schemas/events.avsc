@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "TradingEvent",
+  "namespace": "com.example.ctrm",
+  "doc": "Placeholder Avro schema for trading events. Replace per aggregate.",
+  "fields": [
+    {"name": "eventType", "type": "string"},
+    {"name": "eventId", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "payload", "type": "string"}
+  ]
+}

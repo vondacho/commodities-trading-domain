@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info: { title: Compliance API, version: 0.1.0 }
+paths:
+  /kyc/run:
+    post:
+      summary: RunKYC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                counterpartyId: { type: string }
+      responses: { '200': { description: Completed } }
+  /surveillance/cases:
+    post:
+      summary: OpenSurveillanceCase
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pattern: { type: string }
+                severity: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+                orderIds: { type: array, items: { type: string } }
+      responses: { '201': { description: Created } }

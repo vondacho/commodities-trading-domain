@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info: { title: Finance & Settlements API, version: 0.1.0 }
+paths:
+  /confirmations/{id}/match:
+    post:
+      summary: MatchConfirmation
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      responses: { '200': { description: Matched } }
+  /invoices:
+    post:
+      summary: GenerateInvoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                basisRef: { type: string }
+                counterpartyId: { type: string }
+                amount: { type: number }
+                currency: { type: string }
+                dueDate: { type: string, format: date }
+      responses: { '201': { description: Created } }
+    get:
+      summary: List invoices
+      parameters:
+        - in: query; name: status; schema: { type: string }
+        - in: query; name: counterpartyId; schema: { type: string }
+      responses: { '200': { description: OK } }

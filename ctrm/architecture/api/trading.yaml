@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info: { title: Trading API, version: 0.1.0 }
+paths:
+  /orders:
+    post:
+      summary: PlaceOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                side: { type: string, enum: [BUY, SELL] }
+                instrument: { type: string }
+                quantity: { type: integer }
+                limitPrice: { type: number, nullable: true }
+                timeInForce: { type: string }
+                route: { type: string, nullable: true }
+                bookId: { type: string }
+      responses:
+        '202': { description: Accepted }
+    get:
+      summary: List orders (by book/instrument/status)
+      parameters:
+        - in: query; name: bookId; schema: { type: string }
+        - in: query; name: status; schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /orders/{orderId}/cancel:
+    post:
+      summary: CancelOrder
+      parameters: [{ in: path, name: orderId, required: true, schema: { type: string } }]
+      responses: { '202': { description: Cancel requested } }
+  /positions:
+    get:
+      summary: Get positions by book/instrument
+      parameters:
+        - in: query; name: bookId; schema: { type: string }
+        - in: query; name: instrument; schema: { type: string }
+      responses: { '200': { description: OK } }

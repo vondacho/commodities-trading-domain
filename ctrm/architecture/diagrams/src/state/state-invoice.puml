@@ -1,0 +1,14 @@
+@startuml InvoiceLifecycle
+!theme plain
+
+[*] --> Draft
+Draft --> Issued : GenerateInvoice
+Issued --> Paid : RecordPayment(full)
+Issued --> ShortPaid : RecordPayment(partial)
+ShortPaid --> Resolved : DisputeResolved
+Issued --> Overdue : DueDatePassed
+
+Paid --> [*]
+Resolved --> [*]
+Overdue --> [*]
+@enduml

@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info: { title: Market Data API, version: 0.1.0 }
+paths:
+  /prices:
+    get:
+      summary: Get latest prices
+      parameters:
+        - in: query; name: instrument; schema: { type: string }
+      responses: { '200': { description: OK } }
+  /curves:
+    post:
+      summary: PublishCurve
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instrument: { type: string }
+                method: { type: string }
+                points: { type: array, items: { type: object } }
+      responses: { '201': { description: Published } }

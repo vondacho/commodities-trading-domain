@@ -1,0 +1,3268 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Commodity Trading & Risk Management (CTRM) Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://vondacho.github.io/commodities-trading-domain/ctrm/functional/ctrm_fn_scenarios/">
+      
+      
+        <link rel="prev" href="../ctrm_use_cases/">
+      
+      
+        <link rel="next" href="../../nfr/ctrm_nfr/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Scenarios - CTRM Reference Pack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2a3383ac.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#functional-scenarios-in-commodities-trading-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CTRM Reference Pack" class="md-header__button md-logo" aria-label="CTRM Reference Pack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CTRM Reference Pack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scenarios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vondacho/commodities-trading-domain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    commodities-trading-domain
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+  Commodities Trading
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../freight/freight_domain/" class="md-tabs__link">
+          
+  
+  
+  Freight
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CTRM Reference Pack" class="md-nav__button md-logo" aria-label="CTRM Reference Pack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CTRM Reference Pack
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vondacho/commodities-trading-domain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    commodities-trading-domain
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Commodities Trading
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Commodities Trading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Domain
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Domain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../domain/ctrm_ddd_strategic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strategic DDD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../domain/ctrm_ddd_tactical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tactical DDD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../domain/ctrm_sagas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sagas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctrm_use_cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use cases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trade-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade Capture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#financing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Financing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Market data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portfolio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settlements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settlements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NFRs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            NFRs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nfr/ctrm_nfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nfr/ctrm_nfr_scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nfr/ctrm_nfr_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Solutions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ctrm_system_architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adr/adr-architecture-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADRs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_3" id="__nav_1_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/infra/kafka-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/sql/outbox-ddl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outbox SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4" id="__nav_1_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Diagrams
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Diagrams
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_1" id="__nav_1_5_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context Map
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Context Map
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/ddd/CTRMContextMap.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlantUML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/cml/ctrm-context-map.cml" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_2" id="__nav_1_5_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aggregates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aggregates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/ddd/TradingAggregates.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_3" id="__nav_1_5_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    States
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            States
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/state/OrderLifecycle.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Order
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/state/InvoiceLifecycle.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Invoice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/state/ShipmentLifecycle.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shipment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_4" id="__nav_1_5_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Activities
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Activities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/activity/SettlementProcess.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Settlement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/activity/KYCCheckProcess.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KYC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/activity/RiskLimitMonitoring.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Risk Limit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_5" id="__nav_1_5_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sequences
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sequences
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/sequence/OrderExecutionFlow.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Order Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/sequence/ShipmentInvoiceFlow.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shipment Invoice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/sequence/LimitBreachFlow.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Limit Breach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_6" id="__nav_1_5_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Cases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/usecase/TradingUseCases.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/usecase/RiskUseCases.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Risk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/usecase/FinanceUseCases.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/usecase/ComplianceUseCases.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_7" id="__nav_1_5_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/TradingComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/RiskComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Risk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/FinanceComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/LogisticsComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/ComplianceComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/MarketDataComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Market Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/ReferenceDataComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/component/IAMComponents.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_8" id="__nav_1_5_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/integration/TradingIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/integration/RiskIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Risk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/integration/FinanceIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/integration/ComplianceIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/integration/GlobalIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_9" id="__nav_1_5_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C4 Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            C4 Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C1_System_Landscape.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C1 — System Landscape
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C1_System_Context.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C1 — System Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C2_Containers.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C2 — Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Trading.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Trading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Risk.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Risk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Compliance.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Finance.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Logistics.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Logistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_MarketData.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — MarketData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_Reference.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/c4/C3_Components_IAM.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3 — IAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5_4_10" id="__nav_1_5_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/deployment/CTRMDeployment.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/diagrams/out/deployment/DeploymentIntegration.svg" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Combined
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/ctrm_testing_strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strategies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outages/ctrm_outages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Freight
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Freight
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/freight_domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/domain/freight_ddd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Domain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/functional/freight_fn_scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/functional/freight_use_cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use cases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NFR
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            NFR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/nfr/freight_nfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/nfr/freight_nfr_scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freight/architecture/freight_architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="functional-scenarios-in-commodities-trading-systems">Functional scenarios in Commodities Trading systems<a class="headerlink" href="#functional-scenarios-in-commodities-trading-systems" title="Permanent link">&para;</a></h1>
+<h2 id="trade-capture">Trade Capture<a class="headerlink" href="#trade-capture" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Trade Capture</span>
+<span class="nf">  As a trader</span>
+<span class="nf">  I want to capture deals</span>
+<span class="nf">  So that I can track positions and exposures</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Capture a valid crude oil futures trade (nominal)</span>
+<span class="k">    Given </span><span class="nf">I am logged in as a trader</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I record &quot;</span><span class="s">Buy 100 contracts of WTI Crude Oil Futures at $80 with Counterparty ABC</span><span class="nf">&quot;</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the trade should be saved</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">my position should reflect +</span><span class="s">100</span><span class="nf"> contracts</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Reject trade without counterparty (edge)</span>
+<span class="k">    Given </span><span class="nf">I am entering a new trade</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I omit counterparty details</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should reject the trade</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">display &quot;</span><span class="s">Counterparty is required</span><span class="nf">&quot;</span>
+</code></pre></div>
+
+<h2 id="trade-execution">Trade execution<a class="headerlink" href="#trade-execution" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Analytics &amp; Decision Support</span>
+<span class="nf">  As a trader</span>
+<span class="nf">  I want to place and manage commodity orders</span>
+<span class="nf">  So that I can execute my trading strategies</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Place a futures contract order</span>
+<span class="k">    Given </span><span class="nf">I want to buy </span><span class="s">100</span><span class="nf"> lots of Wheat Futures for December delivery</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I submit the order at a limit price of $</span><span class="s">6.50</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the order should be routed to the appropriate exchange</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">I should see the order status as &quot;</span><span class="s">Pending</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Track partial fills</span>
+<span class="k">    Given </span><span class="nf">I have an open order of </span><span class="s">50</span><span class="nf"> lots of Copper Futures</span>
+<span class="nf">    </span><span class="k">When </span><span class="s">20</span><span class="nf"> lots are filled by the exchange</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should update my position to reflect </span><span class="s">20</span><span class="nf"> filled</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">keep the remaining </span><span class="s">30</span><span class="nf"> as open</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Order rejected by exchange</span>
+<span class="k">    Given </span><span class="nf">I submit a buy order for </span><span class="s">1</span><span class="nf">,</span><span class="s">000</span><span class="nf"> lots of Natural Gas Futures</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the exchange rejects the order due to insufficient margin</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should notify me with the rejection reason</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">mark the order as &quot;</span><span class="s">Rejected</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Duplicate order prevention</span>
+<span class="k">    Given </span><span class="nf">I have already submitted a buy order for </span><span class="s">100</span><span class="nf"> Wheat Futures</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I accidentally submit the same order again</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should detect the duplicate</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">prompt me to confirm or cancel the second order</span>
+</code></pre></div>
+
+<h2 id="risk-management">Risk Management<a class="headerlink" href="#risk-management" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Risk Management</span>
+<span class="nf">  As a risk manager</span>
+<span class="nf">  I want real-time monitoring of exposure and P&amp;L</span>
+<span class="nf">  So that I can prevent breaches of risk limits</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Mark-to-market valuation (nominal)</span>
+<span class="k">    Given </span><span class="nf">I hold </span><span class="s">100</span><span class="nf"> WTI futures bought at $</span><span class="s">80</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the current price is $</span><span class="s">85</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I run risk calculations</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">my unrealized P&amp;L should be $</span><span class="s">500</span><span class="nf">,</span><span class="s">000</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Credit limit breach (edge)</span>
+<span class="k">    Given </span><span class="nf">Counterparty ABC has a credit limit of $</span><span class="s">10</span><span class="nf"> million</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">current exposure is $</span><span class="s">9.5</span><span class="nf"> million</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I approve a $</span><span class="s">2</span><span class="nf"> million trade</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should block the approval</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">alert &quot;</span><span class="s">Credit limit exceeded</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Exposure alert for crude oil</span>
+<span class="k">    Given </span><span class="nf">the exposure limit for Crude Oil is </span><span class="s">10</span><span class="nf">,</span><span class="s">000</span><span class="nf"> barrels</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the trader’s current exposure is </span><span class="s">9</span><span class="nf">,</span><span class="s">800</span><span class="nf"> barrels</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the trader places a new buy order for </span><span class="s">500</span><span class="nf"> barrels</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should block the order</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">raise an alert &quot;</span><span class="s">Exposure limit exceeded</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Intraday risk limit breach due to volatility</span>
+<span class="k">    Given </span><span class="nf">the trader’s risk limit is $</span><span class="s">1</span><span class="nf">,</span><span class="s">000</span><span class="nf">,</span><span class="s">000</span><span class="nf"> VaR</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the current VaR is $</span><span class="s">950</span><span class="nf">,</span><span class="s">000</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">oil prices drop by </span><span class="s">10</span><span class="nf">% in one hour</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should flag that the VaR has exceeded the limit</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">automatically notify the risk manager</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Hedge effectiveness check</span>
+<span class="k">    Given </span><span class="nf">a trader is long </span><span class="s">1</span><span class="nf">,</span><span class="s">000</span><span class="nf"> tons of Aluminum spot</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">short </span><span class="s">10</span><span class="nf"> Aluminum Futures contracts</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the futures price diverges from the spot price significantly</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should flag the hedge as ineffective</span>
+</code></pre></div>
+
+<h2 id="logistics">Logistics<a class="headerlink" href="#logistics" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Logistics &amp; Operations</span>
+<span class="nf">  As an operations manager</span>
+<span class="nf">  I want to track delivery schedules and inventory</span>
+<span class="nf">  So that physical trades are fulfilled correctly</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Schedule shipment from storage (nominal)</span>
+<span class="k">    Given </span><span class="nf">storage has </span><span class="s">50</span><span class="nf">,</span><span class="s">000</span><span class="nf"> barrels of crude oil</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I schedule a shipment of </span><span class="s">20</span><span class="nf">,</span><span class="s">000</span><span class="nf"> barrels to Customer X</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">inventory should reduce to </span><span class="s">30</span><span class="nf">,</span><span class="s">000</span><span class="nf"> barrels</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">shipment status should be &quot;</span><span class="s">Scheduled</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Prevent over-shipment (edge)</span>
+<span class="k">    Given </span><span class="nf">storage has </span><span class="s">5</span><span class="nf">,</span><span class="s">000</span><span class="nf"> tons of wheat</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I attempt to ship </span><span class="s">10</span><span class="nf">,</span><span class="s">000</span><span class="nf"> tons</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should reject the request</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">display &quot;</span><span class="s">Insufficient inventory</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Record shipment against contract</span>
+<span class="k">    Given </span><span class="nf">a physical contract for </span><span class="s">1</span><span class="nf">,</span><span class="s">000</span><span class="nf"> tons of Coffee is due this week</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">a shipment of </span><span class="s">500</span><span class="nf"> tons arrives at the port</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should record the partial delivery</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">update the inventory to reflect the received quantity</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Shipment delayed due to weather</span>
+<span class="k">    Given </span><span class="nf">a delivery contract specifies arrival by September </span><span class="s">30</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the shipment is delayed due to a storm at sea</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should update the expected delivery date</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">notify counterparties of the delay</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Quality mismatch on physical delivery</span>
+<span class="k">    Given </span><span class="nf">a contract specifies Coffee Grade A</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the delivered batch contains </span><span class="s">10</span><span class="nf">% Grade B coffee</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should flag a quality dispute</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">trigger a workflow for claims and settlement adjustment</span>
+</code></pre></div>
+
+<h2 id="financing">Financing<a class="headerlink" href="#financing" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Financing &amp; Settlement</span>
+<span class="nf">  Finance officers reconcile trades with banks and counterparties.</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Settle LC-backed trade (nominal)</span>
+<span class="k">    Given </span><span class="nf">a $</span><span class="s">5</span><span class="nf"> million soybean shipment is backed by an LC</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the bank confirms the LC</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">delivery is confirmed</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the trade status should be &quot;</span><span class="s">Settled</span><span class="nf">&quot;</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">funds released to the producer</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Flag expired LC (edge)</span>
+<span class="k">    Given </span><span class="nf">a $</span><span class="s">2</span><span class="nf"> million copper trade is backed by an LC</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the LC expired yesterday</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">settlement is attempted</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should block settlement</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">display &quot;</span><span class="s">Letter of Credit expired</span><span class="nf">&quot;</span>
+</code></pre></div>
+
+<h2 id="compliance">Compliance<a class="headerlink" href="#compliance" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Compliance &amp; Reporting</span>
+<span class="nf">  As a compliance officer</span>
+<span class="nf">  I want the system to detect suspicious trading behavior and enforce AML/KYC</span>
+<span class="nf">  So that I can prevent market abuse and sanctions breaches</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Generate EMIR report (nominal)</span>
+<span class="k">    Given </span><span class="nf">a new derivatives trade is captured</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I generate a daily EMIR report</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the trade should appear in the report</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">include counterparty LEI and UTI</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Flag missing KYC (edge)</span>
+<span class="k">    Given </span><span class="nf">I enter a trade with Counterparty XYZ</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">KYC is incomplete</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I try to approve the trade</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should block approval</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">alert &quot;</span><span class="s">KYC required</span><span class="nf">&quot;</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Detect spoofing pattern</span>
+<span class="k">    Given </span><span class="nf">a trader places </span><span class="s">10</span><span class="nf"> large buy orders and cancels them quickly</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the system analyzes the order history</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">it should flag this behavior as potential &quot;</span><span class="s">Spoofing</span><span class="nf">&quot;</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">generate a compliance alert</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> AML red flag for counterparty</span>
+<span class="k">    Given </span><span class="nf">I attempt to trade with a new counterparty</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the KYC check shows they are on a sanctions list</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should block the trade</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">escalate to compliance for review</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Failed regulatory submission</span>
+<span class="k">    Given </span><span class="nf">I am required to report daily trades to the regulator</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the submission file fails to transmit</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should retry automatically</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">if still unsuccessful, alert compliance within </span><span class="s">1</span><span class="nf"> hour</span>
+</code></pre></div>
+
+<h2 id="analytics">Analytics<a class="headerlink" href="#analytics" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Analytics &amp; Decision Support</span>
+<span class="nf">  Analysts forecast and simulate market outcomes.</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Generate forward curve (nominal)</span>
+<span class="k">    Given </span><span class="nf">I have price data for crude oil</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I run forward curve generation</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should output forward prices</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">store them for risk and valuation</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Stress test scenario (edge)</span>
+<span class="k">    Given </span><span class="nf">I hold long positions in natural gas</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I run a scenario with prices -</span><span class="s">30</span><span class="nf">%</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should calculate P&amp;L impact</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">show results in the risk dashboard</span>
+</code></pre></div>
+
+<h2 id="market-data">Market data<a class="headerlink" href="#market-data" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Analytics &amp; Decision Support</span>
+<span class="nf">  As a trader</span>
+<span class="nf">  I want to view real-time and historical commodity prices</span>
+<span class="nf">  So that I can make informed trading decisions</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> View real-time futures price</span>
+<span class="k">    Given </span><span class="nf">I am logged into the trading system</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I select &quot;</span><span class="s">Crude Oil Futures</span><span class="nf">&quot; for today&#39;s date</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">I should see the current bid/ask prices and market depth</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Analyze historical price trends</span>
+<span class="k">    Given </span><span class="nf">I have access to historical data</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I request the last </span><span class="s">12</span><span class="nf"> months of Gold prices</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should display a chart with daily closing prices</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Missing market data feed</span>
+<span class="k">    Given </span><span class="nf">I rely on Bloomberg as my primary data source</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the Bloomberg feed is unavailable</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should automatically switch to Refinitiv as backup</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">notify the trader that fallback data is being used</span>
+</code></pre></div>
+
+<h2 id="portfolio">Portfolio<a class="headerlink" href="#portfolio" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Analytics &amp; Decision Support</span>
+<span class="nf">  As a trader</span>
+<span class="nf">  I want to see my current portfolio and P&amp;L</span>
+<span class="nf">  So that I can assess performance</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> View live portfolio P&amp;L</span>
+<span class="k">    Given </span><span class="nf">I have open positions in Gold and Silver futures</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I open the &quot;</span><span class="s">Portfolio Dashboard</span><span class="nf">&quot;</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">I should see unrealized and realized P&amp;L for each commodity</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">my aggregated net exposure across metals</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Portfolio reconciliation failure</span>
+<span class="k">    Given </span><span class="nf">I have open positions in Gold Futures</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the clearing house reports a different quantity</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the system compares internal vs external positions</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">it should generate a reconciliation exception</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">assign it to the back office for investigation</span>
+</code></pre></div>
+
+<h2 id="settlements">Settlements<a class="headerlink" href="#settlements" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> Analytics &amp; Decision Support</span>
+<span class="nf">  As a back-office clerk</span>
+<span class="nf">  I want automated settlement workflows</span>
+<span class="nf">  So that payments and reconciliations are efficient</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Generate invoice for physical trade</span>
+<span class="k">    Given </span><span class="nf">a physical trade of </span><span class="s">2</span><span class="nf">,</span><span class="s">000</span><span class="nf"> barrels of oil is settled at $</span><span class="s">80</span><span class="nf">/barrel</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the trade is confirmed</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should generate an invoice of $</span><span class="s">160</span><span class="nf">,</span><span class="s">000</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">send it to the counterparty for payment</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Payment mismatch with counterparty</span>
+<span class="k">    Given </span><span class="nf">an invoice of $</span><span class="s">160</span><span class="nf">,</span><span class="s">000</span><span class="nf"> was issued</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the counterparty only pays $</span><span class="s">150</span><span class="nf">,</span><span class="s">000</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should record a short payment</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">generate an exception report for dispute resolution</span>
+
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> FX conversion error</span>
+<span class="k">    Given </span><span class="nf">a settlement is in EUR</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">the internal system mistakenly applies USD rate</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">the mismatch is detected during reconciliation</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the system should adjust the accounting entry</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">notify finance of the correction</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "content.code.copy", "search.highlight", "search.share", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

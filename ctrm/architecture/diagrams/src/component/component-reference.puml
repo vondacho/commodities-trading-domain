@@ -1,0 +1,14 @@
+@startuml ReferenceDataComponents
+!theme plain
+
+package "Reference Data" {
+  [Instrument Catalog] as IC
+  [Counterparty Master] as CM
+  [Calendar Service] as CAL
+  [Unit Conversion] as UC
+}
+
+IC --> CM : links tradable instruments to parties
+CAL --> IC : trading days
+UC --> IC : normalize units
+@enduml
