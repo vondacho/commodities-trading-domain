@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs-material mkdocstrings[python] mkdocs-awesome-pages-plugin mkdocs-mermaid2-plugin
+          pip install mkdocs-material mkdocstrings[python] mkdocs-awesome-pages-plugin build_plantuml
 
       - name: Build and deploy
         run: |
