@@ -5,7 +5,16 @@ site_description: Commodity Trading & Risk Management (CTRM) Documentation
 site_url: https://vondacho.github.io/commodities-trading-domain
 repo_url: https://github.com/vondacho/commodities-trading-domain
 repo_name: commodities-trading-domain
-
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - search.highlight
+    - search.share
+    - content.tabs.link
 nav:
   - Commodities Trading: commodities_trading_domain.md
   - CTRM:
@@ -94,6 +103,8 @@ nav:
     - Architecture: freight/architecture/freight_architecture.md
 plugins:
   - search
+  - mkdocstrings
+  - awesome-pages
 #   - build_plantuml:
 #       render: 'server' # or "local" for local rendering
 #       server: 'http://www.plantuml.com/plantuml' # official plantuml server
@@ -106,5 +117,9 @@ plugins:
 #       input_extensions: '' # comma separated list of extensions to parse, by default every file is parsed
 
 markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
   - toc:
       permalink: true
