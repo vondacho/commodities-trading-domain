@@ -1,6 +1,8 @@
 # Commodities Trading
 
-Commodities trading is the buying and selling of raw materials or primary agricultural products, either physically or through financial instruments. It’s one of the oldest forms of trade and still underpins much of the global economy.
+Commodities trading is the buying and selling of raw materials or primary agricultural products, either physically or through financial instruments.
+
+It’s one of the oldest forms of trade and still underpins much of the global economy.
 
 ## Types of Commodities
 
